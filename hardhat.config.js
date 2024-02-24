@@ -5,7 +5,8 @@ require("dotenv").config()
 const {
 	VITE_ALCHEMY_API_URL,
 	VITE_PRIVATE_KEY,
-	VITE_ETHERSCAN_API_KEY
+	VITE_ETHERSCAN_API_KEY,
+	VITE_ALCHEMY_API_KEY
 } = process.env
 
 const ALCHEMY_API_URL= VITE_ALCHEMY_API_URL;
@@ -20,7 +21,7 @@ module.exports = {
 		}
 	},
 	solidity: {
-		version: "0.8.19",
+		version: "0.8.20",
 		settings: {
 			optimizer: { enabled: true, runs: 200 }
 		}

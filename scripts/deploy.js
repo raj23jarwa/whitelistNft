@@ -28,6 +28,7 @@ main()
     })
 
 // latest
+// myNFT deployed to: 0x5FbDB2315678afecb367f032d93F642f64180aa3
 // myNFT deployed to: 0xA56CA66c508cF329f39b3e4A6B658296C194AE39
 
 // first
