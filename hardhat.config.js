@@ -6,17 +6,17 @@ const {
 	VITE_ALCHEMY_API_URL,
 	VITE_PRIVATE_KEY,
 	VITE_ETHERSCAN_API_KEY,
-	VITE_ALCHEMY_API_KEY
+	// VITE_ALCHEMY_API_KEY
 } = process.env
 
 const ALCHEMY_API_URL= VITE_ALCHEMY_API_URL;
-const ALCHEMY_API_KEY = VITE_ALCHEMY_API_KEY;
+// const ALCHEMY_API_KEY = VITE_ALCHEMY_API_KEY;
 const SEPOLIA_PRIVATE_KEY = VITE_PRIVATE_KEY;
 module.exports = {
 
 	networks: {
 		sepolia: {
-			url: `${ALCHEMY_API_URL}/${ALCHEMY_API_KEY}`,
+			url: ALCHEMY_API_URL,
 			accounts: [`${SEPOLIA_PRIVATE_KEY}`],
 		}
 	},
@@ -30,6 +30,3 @@ module.exports = {
 		apiKey: VITE_ETHERSCAN_API_KEY
 	}
 }
-
-// npx hardhat run scripts/deploy.js --network sepolia
-// myNFT deployed to: 0x514424f573F84E40dC953490D0A305b33267d005

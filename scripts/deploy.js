@@ -1,36 +1,19 @@
-/* eslint-env node */
-/* global ethers */
-
-const fs = require("fs")
+const { ethers } = require('hardhat');
 
 async function main() {
-    const MyNFTFactory = await ethers.getContractFactory("MyNFT")
-    const myNFT = await MyNFTFactory.deploy()
+  const [deployer] = await ethers.getSigners();
 
-    await myNFT.deployed()
+  console.log('Deploying contracts with the account:', deployer.address);
 
-    console.log("myNFT deployed to:", myNFT.address)
+  const MyNFT = await ethers.getContractFactory('MyNFT');
+  const mynft = await MyNFT.deploy();
 
-    const data = {
-        address: myNFT.address,
-        abi: JSON.parse(myNFT.interface.format("json")),
-    }
-
-    //writes the ABI and contract address to the MyNFT.json
-    fs.writeFileSync("./src/MyNFT.json", JSON.stringify(data))
+  console.log('whiteListNFT address:', mynft.address);
 }
 
 main()
-    .then(() => process.exit(0))
-    .catch((error) => {
-        console.error(error)
-        process.exit(1)
-    })
-
-// latest
-// myNFT deployed to: 0x5FbDB2315678afecb367f032d93F642f64180aa3
-// myNFT deployed to: 0xA56CA66c508cF329f39b3e4A6B658296C194AE39
-
-// first
-// myNFT deployed to: 0x2AB2FD773723299869812Cf0Abd1BBcc9f5dA7c8
-// src/MyNFT.json address
+  .then(() => process.exit(0))
+  .catch(error => {
+    console.error(error);
+    process.exit(1);
+  });
